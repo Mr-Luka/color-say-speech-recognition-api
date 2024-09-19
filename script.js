@@ -22,7 +22,12 @@ rec.onresult = function (e) {
     // Thats why we have to loop through it, and show each word one after another
     for (let i = e.resultIndex; i < e.results.length; i++) {
         const script = e.results[i][0].transcript.toLowerCase().trim(); // all lower case and no white space
-        console.log(script)
+        
+        if (acceptedColors.includes(script)) {
+            document.body.style.backgroundColor = script;
+        } else {
+            alert('Please say a color');
+        }
     }
 }
 rec.start();
